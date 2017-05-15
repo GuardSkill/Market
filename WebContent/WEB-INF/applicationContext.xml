@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+            http://www.springframework.org/schema/aop  http://www.springframework.org/schema/aop/spring-aop-4.0.xsd  ">
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close" p:driverClass="com.mysql.jdbc.Driver"
+		p:jdbcUrl="jdbc:mysql://guardskill.cn:3306/market" 
+		p:user="user"
+		p:password="S1042h28" p:maxPoolSize="40" p:minPoolSize="2"
+		p:initialPoolSize="2" p:maxIdleTime="30" />
+	
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
+		p:dataSource-ref="dataSource">
+		<!-- define the dateSource's construction's parameter -->
+		<!-- define the sessionFactory's property -->
+		<property name="annotatedClasses">
+			<list>
+				<value>cn.guardskill.orm.User</value>
+				<value>cn.guardskill.orm.Good</value>
+				<value>cn.guardskill.orm.Indent</value>
+			</list>
+		</property>
+		<!-- <property name="mappingDirectoryLocations"> <list> <value>>classpath:cn/guardskill/orm</value> 
+			</list> </property> -->
+
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.connection.autocommit">true</prop> 
+			  
+			</props>
+		</property>
+	</bean>
+	<bean id="userService" class="cn.guardskill.service.UserServiceIm"
+		p:userDao-ref="userDao" />
+	<bean id="userDao" class="cn.guardskill.dao.UserHibernate"
+		p:sessionFactory-ref="sessionFactory" />
+	<!-- map struts's action to really entity -->
+	<bean id="userAction" class="cn.guardskill.action.UserAction"
+		scope="prototype" p:userService-ref="userService"></bean>
+	<!-- 配置事务管理Bean -->
+	<bean id="transactionManager"
+	class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+	<property name="sessionFactory" ref="sessionFactory" />
+	<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	<tx:annotation-driven transaction-manager="transactionManager"/> 
+    <!-- 配置事务增强 -->
+    
+</beans>
+	
+		
