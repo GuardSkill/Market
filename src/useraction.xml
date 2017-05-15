@@ -15,7 +15,7 @@
         	<result name="success">login.jsp</result>  
         </action>
         <action name="userLogin" class="userAction" method="userLogin" >
-        	<result name="success">index.jsp</result>  
+        	<result name="success">welcome.jsp</result>  
         </action>
         <action name="userExist" class="userAction" method="userExist" >
         	<result name="success" type="stream">  
@@ -23,7 +23,8 @@
         	<param name="contentType">text/html</param>  
         <!-- 指定由getResult()方法返回输出结果的InputStream -->  
        		<param name="inputName">result</param>  
-   			 </result>    
+   			 </result>  
+   			
         </action>
     </package>
 </struts>

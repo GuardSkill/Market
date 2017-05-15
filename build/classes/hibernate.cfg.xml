@@ -15,8 +15,8 @@
   <property name="hibernate.c3p0.idle_test_period">3000</property>
   <property name="hibernate.show_sql">true</property>
   <property name="hibernate.format_sql">true</property>
-  <mapping class="cn.guardskill.orm.User" package="cn.guardskill.orm" resource="cn/guardskill/orm/User.hbm.xml"/>
-  <mapping class="cn.guardskill.orm.Good" package="cn.guardskill.orm" resource="cn/guardskill/orm/Good.hbm.xml"/>
-  <mapping class="cn.guardskill.orm.Indent" package="cn.guardskill.orm" resource="cn/guardskill/orm/Indent.hbm.xml"/>
+  <mapping class="cn.guardskill.orm.User" />
+  <mapping class="cn.guardskill.orm.Good" />
+  <mapping class="cn.guardskill.orm.Indent" />
  </session-factory>
 </hibernate-configuration>

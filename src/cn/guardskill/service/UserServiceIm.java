@@ -16,19 +16,15 @@ public class UserServiceIm implements UserService{
 	}
 
 	@Override
-	public String addUser(User user) {	
-		if(user.getuName().trim().isEmpty()||user.getuName().length()>10
-				||user.getuPassword().length()>10
-				||user.getuPassword().trim().isEmpty()
-				||user.getuPhone().trim().isEmpty()) return null;
+	public Integer addUser(User user) {	
 		//subtract " " and calculate  if empty
-		User test=userDao.get(User.class,user.getuName());
+		User test=userDao.getByname(User.class,user.getuName());
 		if(test!=null) return null;  //already exist
-		else return (String) userDao.save(user);
+		else return (Integer) userDao.save(user);
 		
 	}
 	public User loginUser(User user) {
-		User userdata=userDao.get(User.class,user.getuName());
+		User userdata=userDao.getByname(User.class,user.getuName());
 		if(userdata==null||!(userdata.getuPassword().equals(user.getuPassword()))) return null;
 		//用户名或密码错误
 		else return userdata;
@@ -36,8 +32,12 @@ public class UserServiceIm implements UserService{
 	}
 
 	@Override
-	public User findByKey(String uName) {
-		return userDao.get(User.class,uName);
+	public User findByKey(Integer uId) {
+		return userDao.get(User.class,uId);
+	}
+	public User findByName(String uName)
+	{
+		return userDao.getByname(User.class, uName);
 	}
 
 

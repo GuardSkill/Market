@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE validators PUBLIC
+	"-//Apache Struts//XWork Validator 1.0.3//EN"
+	"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+	<validators>
+	<field name="user.uName">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>请输入用户名</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[(\w{4,15})]]></param>
+			<message>请输4-15的字母或数字</message>
+		</field-validator>
+	</field>
+	<field name="user.uPassword">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>请输入密码</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[(\w{4,15})]]></param>
+			<message>请输4-15的字母或数字</message>
+		</field-validator>
+	</field>
+	<field name="user.uPhone">
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[(\w{4,11})]]></param>
+			<message>请输4-11的数字</message>
+		</field-validator>
+	</field>
+	</validators>

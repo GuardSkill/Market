@@ -4,7 +4,8 @@ import cn.guardskill.orm.User;
 
 public interface UserService
 {
-	String  addUser(User user);
-	User findByKey(String uName);
+	Integer  addUser(User user);
+	User findByKey(Integer uName);
+	User findByName(String uName);
 	User  loginUser(User user);
 }

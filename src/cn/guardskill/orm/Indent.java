@@ -15,29 +15,20 @@ public class Indent {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer iId;
-	private String iAdd;
+	private String iAddr;
 	private Boolean iStatus;
 	
-	@ManyToOne(targetEntity=User.class)
-	@JoinColumn(name="iSeller_n",referencedColumnName="uName",nullable=false)
-	private User iSeller;
-	@ManyToOne(targetEntity=User.class)
-	@JoinColumn(name="iCustomer_n",referencedColumnName="uName",nullable=false)
-	private User iCustomer;
-	@OneToOne(targetEntity=Good.class,mappedBy="gOrder")
-	
-	private Good iGood;
 	public Integer getiId() {
 		return iId;
 	}
 	public void setiId(Integer iId) {
 		this.iId = iId;
 	}
-	public String getiAdd() {
-		return iAdd;
+	public String getiAddr() {
+		return iAddr;
 	}
-	public void setiAdd(String iAdd) {
-		this.iAdd = iAdd;
+	public void setiAddr(String iAddr) {
+		this.iAddr = iAddr;
 	}
 	public Boolean getiStatus() {
 		return iStatus;
@@ -63,8 +54,13 @@ public class Indent {
 	public void setiGood(Good iGood) {
 		this.iGood = iGood;
 	}
+	@ManyToOne(targetEntity=User.class)
+	@JoinColumn(name="s_uId",referencedColumnName="uId",nullable=false)
+	private User iSeller;
+	@ManyToOne(targetEntity=User.class)
+	@JoinColumn(name="c_uId",referencedColumnName="uId",nullable=false)
+	private User iCustomer;
+	@OneToOne(targetEntity=Good.class,mappedBy="gOrder")
+	private Good iGood;
 	
-	
-	
-
 }

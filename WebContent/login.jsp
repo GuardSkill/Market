@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <meta charset="UTF-8">
 <title>登陆</title>
 <style type="text/css">

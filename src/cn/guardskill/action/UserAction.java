@@ -30,8 +30,8 @@ public class UserAction extends ActionSupport{
 	    }  
 	public String userLogin () throws Exception
 	 {
-		if(user.getuName().trim().isEmpty()||user.getuName().length()>10
-				||user.getuPassword().length()>10
+		if(user.getuName().trim().isEmpty()||user.getuName().length()>15
+				||user.getuPassword().length()>15
 				||user.getuPassword().trim().isEmpty())
 			return ERROR;
 		 User userdata=userService.loginUser(user);
@@ -41,15 +41,26 @@ public class UserAction extends ActionSupport{
 	public String userAdd () throws Exception
 
 	{
-		String  result=userService.addUser(user);
-		if(result!=null)	return SUCCESS;
-		else return ERROR;
+		if(user.getuName().trim().isEmpty()||user.getuName().length()>15
+				||user.getuPassword().length()>15
+				||user.getuPassword().trim().isEmpty()
+				||user.getuPhone().trim().isEmpty()) return ERROR;
+		Integer  result=userService.addUser(user);
+		if(result==null)	return ERROR;
+		else return SUCCESS;
 		
 	}
 	public String userExist() throws IOException
 	{
-		User exisUser =userService.findByKey(user.getuName());  
+		if(user.getuName().trim().isEmpty()||user.getuName().length()>15
+				||user.getuName().length()<4)
+		{
+			inputStream=new ByteArrayInputStream("请好好输入"  
+	                .getBytes("UTF-8"));  
+		}
+		User exisUser =userService.findByName(user.getuName());  
 	    //获得response  
+		
 		inputStream =(exisUser==null)? new ByteArrayInputStream("用户名可用"  
 	                .getBytes("UTF-8"))  
 	            : new ByteArrayInputStream("用户名存在"  

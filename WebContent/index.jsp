@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>注册</title>
+<meta charset="UTF-8">
+<title>登陆</title>
 <style type="text/css">
 html{   
     width: 100%;   
@@ -75,45 +75,26 @@ input{
 	border-left-style: none;
 	margin-top: 15px;
 }  
-#show {
-	font-size: 12px;
-	color: #F00;
-}
 </style>
- <script src="js/jquery-1.10.2.min.js"   
-    type="text/javascript">  
-    </script>  
+<script type="text/javascript">
+</script>
 </head>
-<body> 
-	
+<body>
+
+
 	<div id="login">
-		<h1>注册</h1>	
-		<form id="myForm" name="myForm" action="userAdd" method="post">
-			<input name="user.uName" class="input1" required="required" placeholder="用户名"
-				type="text" id="uName" /> <span id="show"> </span>
-			<input name="user.uPassword" class="input1" 
-				required="required" placeholder="密码" type="password" />
-	    <input name="user.uPhone"
-				required="required" placeholder="手机" type="password" />		
-			<button class="but" type="submit">注册</button>
-			<button class="but" type="reset">重置</button>		
-			</form>
+		<h1>登陆</h1>
+		<form action="userLogin" method="post">
+			<input name="user.uName" required="required" placeholder="用户名"
+				type="text" /> 
+			<input name="user.uPassword"
+				required="required" placeholder="密码" type="password" /> 
+		  <button class="but" type="submit">登录</button>
+		  <button class="but" type="button"onclick="window.location.href='register.jsp'">注册</button>
+		</form>
 	</div>
 
-	<script type="text/javascript">  
-    //为id为uName的按钮绑定事件处理函数  
-    $("#uName").blur(function()  
-    {  
-        //post myForm's data to userExist action  
-        $.get("userExist" , $("#myForm").serializeArray() ,   
-            //指定回调函数  
-            function(data , statusText)  
-            {  
-                $("#show").html(data + "<br />");  
-            },  
-            //指定服务器响应为html  
-            "html");  
-    });  
-</script>  
+
+
 </body>
 </html>

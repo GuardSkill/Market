@@ -8,9 +8,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-
-
 @Entity
 @Table(name="good")
 public class Good {
@@ -24,11 +21,9 @@ public class Good {
 	private Boolean gStatus;
 	
 	@ManyToOne(targetEntity=User.class)
-	@JoinColumn(name="gBuilder_n",referencedColumnName="uName",nullable=false) 
-
-	//join Column "gBuilder_n" to table "good" & link 'uName" to "gBuilder_n"   
+	@JoinColumn(name="b_uId",referencedColumnName="uId",nullable=false) 
+	//join Column "b_uId" to table "good" & link 'uId" from user table to "b_uId"   
 	private User gBuilder;
-	
 	@OneToOne(targetEntity=Indent.class)
 	@JoinColumn(name="iId",referencedColumnName="iId",unique=true,nullable=true)
 	private Indent gOrder;
@@ -89,8 +84,5 @@ public class Good {
 
 	public void setgOrder(Indent gOrder) {
 		this.gOrder = gOrder;
-	}
-	
-
-	
+	}	
 }

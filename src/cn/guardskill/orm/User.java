@@ -4,6 +4,8 @@ import java.util.Set;
 
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -16,6 +18,8 @@ import javax.persistence.Table;
 public class User {
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer uId;
 	private String uName;
 	private String uPassword;
 	private String uPhone;
@@ -23,14 +27,17 @@ public class User {
 	@OneToMany(targetEntity=Good.class,mappedBy="gBuilder")  
 	//mappedBy--which Property in targetEntity
 	private Set<Good>  uGoods;
-	
 	@OneToMany(targetEntity=Indent.class,mappedBy="iSeller")  
 	private Set<Indent> uSellOrders;
 	@OneToMany(targetEntity=Indent.class,mappedBy="iCustomer")  
 	private Set<Indent> uBuyOrders;
 
-	
-	
+	public Integer getuId() {
+		return uId;
+	}
+	public void setuId(Integer uId) {
+		this.uId = uId;
+	}
 	public String getuPassword() {
 		return uPassword;
 	}
