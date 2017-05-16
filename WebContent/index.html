@@ -1,16 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
-<%@ taglib uri="/struts-tags" prefix="s" %>
-<%
-String path=request.getContextPath();
-String basePath=request.getScheme()+"://"+request.getServerName()+":"+
-request.getServerPort()+path+"/";
-%>
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<base href="<%=basePath%>" />
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Azure</title>
 <style type="text/css">
 html{   
@@ -98,7 +89,7 @@ input{
 			<input name="user.uPassword"
 				required="required" placeholder="密码" type="password" /> 
 		  <button class="but" type="submit">登录</button>
-		  <button class="but" type="button"onclick="window.location.href='register.jsp'">注册</button>
+		  <button class="but" type="button" onclick="window.location.href='register.jsp'">注册</button>
 		</form>
 	</div>
 

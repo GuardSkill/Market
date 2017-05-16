@@ -4,6 +4,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import javax.servlet.http.Cookie;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -44,8 +45,6 @@ public class UserAction extends ActionSupport{
 		 else 
 			 {
 			 ctx.getSession().put("UID", userdata.getuId());
-			 ctx.getSession().put("USER", userdata.getuName());
-			 ctx.getSession().put("PWD", userdata.getuPassword());
 			 //put the data to the memory
 			 return SUCCESS;
 			 }
@@ -67,7 +66,6 @@ public class UserAction extends ActionSupport{
 	}
 	 /*uName validate AJAX*/
 	public String userExist() throws IOException
-
 	{
 		if(!validateName())
 		{
@@ -82,6 +80,12 @@ public class UserAction extends ActionSupport{
 	            : new ByteArrayInputStream("用户名存在"  
 	                .getBytes("UTF-8"));  
 	    return NONE;  
+	}
+	public String userOut() throws IOException
+	{
+	if(ActionContext.getContext().getSession().remove("UID")==null)
+    return ERROR;
+	else return SUCCESS;
 	}
 
 	
