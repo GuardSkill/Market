@@ -34,7 +34,7 @@ public class UserAction extends ActionSupport{
 				||user.getuPassword().length()>15
 				||user.getuPassword().trim().isEmpty())
 			return ERROR;
-		 User userdata=userService.login User(user);
+		 User userdata=userService.loginUser(user);
 		 if(userdata==null) return ERROR;	
 		 else return SUCCESS;
 	 }
