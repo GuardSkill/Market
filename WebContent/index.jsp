@@ -1,8 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib uri="/struts-tags" prefix="s" %>
+<%
+String path=request.getContextPath();
+String basePath=request.getScheme()+"://"+request.getServerName()+":"+
+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html>
 <head>
+<base href="<%=basePath%>" />
 <meta charset="UTF-8">
 <title>Azure</title>
 <style type="text/css">
@@ -18,7 +25,7 @@ body{
 	font-family: 'Open Sans',sans-serif;
 	margin: 0;
 	background-color: #4A374A;
-	background-size：100% 100%;
+	background-size: 100% 100%;
 	background-image: url(backgroud.jpg);
 	background-repeat: no-repeat;
 }   
@@ -91,7 +98,7 @@ input{
 			<input name="user.uPassword"
 				required="required" placeholder="密码" type="password" /> 
 		  <button class="but" type="submit">登录</button>
-		  <button class="but" type="button"onclick="window.location.href='register.jsp'">注册</button>
+		  <button class="but" type="button"onclick="window.location.href='/Market/register.jsp'">注册</button>
 		</form>
 	</div>
 

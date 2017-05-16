@@ -4,6 +4,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -31,7 +32,7 @@ public class UserAction extends ActionSupport{
 		ActionContext ctx=ActionContext.getContext();//build ActionCtx
 		if(!validateLogin())  //input invalid
 			{
-			addActionMessage("请好好输入<br />");
+			addActionMessage("请好好输入");
 			return NONE;  
 			}
 		 User userdata=userService.loginUser(user);
@@ -42,7 +43,7 @@ public class UserAction extends ActionSupport{
 			 }
 		 else 
 			 {
-			 ctx.getSession().put(WebConstant.USER, userdata.getuId());
+			 ctx.getSession().put("UID", userdata.getuId());
 			 ctx.getSession().put("USER", userdata.getuName());
 			 ctx.getSession().put("PWD", userdata.getuPassword());
 			 //put the data to the memory
@@ -52,10 +53,16 @@ public class UserAction extends ActionSupport{
 	 /*user sign up*/
 	public String userAdd () throws Exception
 	{
-		if(!validateRegister()) return ERROR;
-		Integer  uId=userService.addUser(user);
-		if(uId==null)	return ERROR;
-		else return SUCCESS;
+		if (!validateRegister()) {
+			addActionMessage("请好好输入");
+			return NONE;
+		}
+		Integer uId = userService.addUser(user);
+		if (uId == null) {
+			addActionMessage("用户已经存在");
+			return NONE; // if login not success
+		} else
+		return SUCCESS;
 		
 	}
 	 /*uName validate AJAX*/
@@ -74,7 +81,7 @@ public class UserAction extends ActionSupport{
 	                .getBytes("UTF-8"))  
 	            : new ByteArrayInputStream("用户名存在"  
 	                .getBytes("UTF-8"));  
-	    return SUCCESS;  
+	    return NONE;  
 	}
 
 	

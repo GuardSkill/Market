@@ -1,8 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib uri="/struts-tags" prefix="s" %>
+<%
+String path=request.getContextPath();
+String basePath=request.getScheme()+"://"+request.getServerName()+":"+
+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<base href="<%=basePath%>" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>注册</title>
 <style type="text/css">
@@ -19,6 +26,7 @@ body{
 	margin: 0;
 	background-color: #4A374A;
 	background-image: url(backgroud.jpg);
+	background-size: 100% 100%;
 	background-repeat: no-repeat;
 }   
 #login{   
@@ -79,6 +87,8 @@ input{
 	font-size: 12px;
 	color: #F00;
 }
+.show2{font-size: 12px;
+	color: #F00;}
 </style>
  <script src="js/jquery-1.10.2.min.js"   
     type="text/javascript">  
@@ -94,7 +104,8 @@ input{
 			<input name="user.uPassword" class="input1" 
 				required="required" placeholder="密码" type="password" />
 	    <input name="user.uPhone"
-				required="required" placeholder="手机" type="password" />		
+				required="required" placeholder="手机" type="text" />
+			<span class="show2"> <s:actionmessage/> </span>		
 			<button class="but" type="submit">注册</button>
 			<button class="but" type="reset">重置</button>		
 			</form>

@@ -6,11 +6,18 @@ import com.opensymphony.xwork2.interceptor.MethodFilterInterceptor;
 
 public class LoginInterceptor extends MethodFilterInterceptor{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Override
-	protected String doIntercept(ActionInvocation invocation) throws Exception {
-		Object login=ActionContext.getContext().getSession().get(Constants,UID);
-		
-		return null;
+	public String doIntercept(ActionInvocation invocation) throws Exception {
+		Object login=ActionContext.getContext().getSession().get("UID");
+		if(null==login){
+			return "nologin";
+			}
+		return invocation.invoke();
 	}
 
 }
