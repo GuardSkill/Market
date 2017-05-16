@@ -16,9 +16,10 @@
         </action>
         <action name="userLogin" class="userAction" method="userLogin" >
         	<result name="success">User/welcome.jsp</result>  
+        	<result name="none"  >login.jsp</result>
         </action>
         <action name="userExist" class="userAction" method="userExist" >
-        	<result name="success" type="stream">  
+        	<result name="none" type="stream">  
         <!-- 指定下载文件的文件类型 -->  
         	<param name="contentType">text/html</param>  
         <!-- 指定由getResult()方法返回输出结果的InputStream -->  

@@ -6,14 +6,5 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>welcome</title>
 </head>
-<body>
-	<%
-		request.setCharacterEncoding("UTF-8");                  //请求的编码方式
-		response.setContentType("text/html;charset=UTF-8");    //页面的编码方式
-	%>
-亲爱的:
-
-：<%=request.getParameter("username")%><br> 
-欢迎您
 </body>
 </html>

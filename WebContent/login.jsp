@@ -76,6 +76,10 @@ input{
 	border-left-style: none;
 	margin-top: 15px;
 }  
+#show {
+	font-size: 12px;
+	color: #F00;
+}
 </style>
 <script type="text/javascript">
 </script>
@@ -90,6 +94,7 @@ input{
 				type="text" /> 
 			<input name="user.uPassword"
 				required="required" placeholder="密码" type="password" /> 
+			 <span id="show"><s:actionmessage/> </span>
 		  <button class="but" type="submit">登录</button>
 		  <button class="but" type="button"onclick="window.location.href='register.jsp'">注册</button>
 		</form>
