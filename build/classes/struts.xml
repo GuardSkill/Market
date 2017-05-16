@@ -44,7 +44,8 @@
    			 </result>  
    		</action>
    		 <action name="newGood" class="cn.guardskill.action.GoodAction" method="newGood">
-   			 <result name="none"  >/User/welcome.jsp</result>
+   			 <result name="none"  >/User/newgood.html</result>
+   			 <result name="success"  >/User/welcome.jsp</result>
         </action>    
     </package>
 </struts>

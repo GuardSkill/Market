@@ -41,13 +41,17 @@
 			</props>
 		</property>
 	</bean>
-	<bean id="userService" class="cn.guardskill.service.UserServiceIm"
-		p:userDao-ref="userDao" />
-	<bean id="userDao" class="cn.guardskill.dao.UserHibernate"
-		p:sessionFactory-ref="sessionFactory" />
+	<bean id="userDao" class="cn.guardskill.dao.UserHibernate" p:sessionFactory-ref="sessionFactory" />
+	<bean id="goodDao" class="cn.guardskill.dao.GoodHibernate" p:sessionFactory-ref="sessionFactory" />
+	<bean id="userService" class="cn.guardskill.service.UserServiceIm" p:userDao-ref="userDao" />
+	<bean id="goodService" class="cn.guardskill.service.GoodServiceIm"
+		p:userDao-ref="userDao" p:goodDao-ref="goodDao"/>
 	<!-- map struts's action to really entity -->
-	<bean id="userAction" class="cn.guardskill.action.UserAction"
-		scope="prototype" p:userService-ref="userService"></bean>
+	<bean id="userAction" class="cn.guardskill.action.UserAction" 
+	scope="prototype" p:userService-ref="userService"/>
+	<bean id="newGood" class="cn.guardskill.action.GoodAction" 
+	scope="prototype" p:goodService-ref="goodService"/>
+	
 	<!-- 配置事务管理Bean -->
 	<bean id="transactionManager"
 	class="org.springframework.orm.hibernate4.HibernateTransactionManager">
