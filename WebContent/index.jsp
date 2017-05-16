@@ -98,7 +98,7 @@ input{
 			<input name="user.uPassword"
 				required="required" placeholder="密码" type="password" /> 
 		  <button class="but" type="submit">登录</button>
-		  <button class="but" type="button"onclick="window.location.href='/Market/register.jsp'">注册</button>
+		  <button class="but" type="button"onclick="window.location.href='register.jsp'">注册</button>
 		</form>
 	</div>
 
