@@ -87,7 +87,7 @@ input{
 <body> 
 	
 	<div id="login">
-		<h1>注册</h1>	
+		<h1>sign up</h1>	
 		<form id="myForm" name="myForm" action="userAdd" method="post">
 			<input name="user.uName" class="input1" required="required" placeholder="用户名"
 				type="text" id="uName" /> <span id="show"> </span>

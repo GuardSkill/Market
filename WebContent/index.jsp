@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>登陆</title>
+<title>Azure</title>
 <style type="text/css">
 html{   
     width: 100%;   
@@ -18,6 +18,7 @@ body{
 	font-family: 'Open Sans',sans-serif;
 	margin: 0;
 	background-color: #4A374A;
+	background-size：100%;
 	background-image: url(backgroud.jpg);
 	background-repeat: no-repeat;
 }   
@@ -38,7 +39,7 @@ body{
 h1{   
     font-size: 2em;   
     margin: 0.67em 0;   
-}   
+}    
 input{   
     width: 278px;   
     height: 18px;   
@@ -83,7 +84,7 @@ input{
 
 
 	<div id="login">
-		<h1>登陆</h1>
+		<h1>Azure</h1>
 		<form action="userLogin" method="post">
 			<input name="user.uName" required="required" placeholder="用户名"
 				type="text" /> 

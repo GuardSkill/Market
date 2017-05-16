@@ -5,7 +5,7 @@
 <head>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <meta charset="UTF-8">
-<title>登陆</title>
+<title>login</title>
 <style type="text/css">
 html{   
     width: 100%;   
@@ -84,7 +84,7 @@ input{
 
 
 	<div id="login">
-		<h1>登陆</h1>
+		<h1>Login</h1>
 		<form action="userLogin" method="post">
 			<input name="user.uName" required="required" placeholder="用户名"
 				type="text" /> 
