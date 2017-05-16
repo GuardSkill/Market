@@ -15,7 +15,7 @@
         	<result name="success">login.jsp</result>  
         </action>
         <action name="userLogin" class="userAction" method="userLogin" >
-        	<result name="success">welcome.jsp</result>  
+        	<result name="success">User/welcome.jsp</result>  
         </action>
         <action name="userExist" class="userAction" method="userExist" >
         	<result name="success" type="stream">  

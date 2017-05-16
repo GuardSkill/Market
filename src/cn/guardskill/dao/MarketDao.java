@@ -21,14 +21,7 @@ public class MarketDao<T> implements BaseDao<T> {
 		return (T)getSessionFactory().getCurrentSession().get(entityClazz, id);
 	}
 	//load entity by Id
-	@SuppressWarnings("unchecked")
-	public T getByname(Class<T> entityClazz,String name)
-	{
-		String hql = "from User where uName = ? ";  
-        Query query = getSessionFactory().getCurrentSession().createQuery(hql);  
-        query.setParameter(0, name);  
-        return (T)query.uniqueResult();  
-	}
+	
 	public Serializable save(T entity) {
 		return getSessionFactory().getCurrentSession().save(entity);
 	}

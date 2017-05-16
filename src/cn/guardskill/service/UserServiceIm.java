@@ -18,14 +18,14 @@ public class UserServiceIm implements UserService{
 	@Override
 	public Integer addUser(User user) {	
 		//subtract " " and calculate  if empty
-		User test=userDao.getByname(User.class,user.getuName());
+		User test=userDao.getByName(User.class,user.getuName());
 		if(test!=null) return null;  //already exist
 		else return (Integer) userDao.save(user);
 		
 	}
 	public User loginUser(User user) {
-		User userdata=userDao.getByname(User.class,user.getuName());
-		if(userdata==null||!(userdata.getuPassword().equals(user.getuPassword()))) return null;
+		User userdata=userDao.getByNameAndPass(User.class,user.getuName(),user.getuPassword());
+		if(userdata==null) 	return null;
 		//用户名或密码错误
 		else return userdata;
 		
@@ -37,7 +37,7 @@ public class UserServiceIm implements UserService{
 	}
 	public User findByName(String uName)
 	{
-		return userDao.getByname(User.class, uName);
+		return userDao.getByName(User.class, uName);
 	}
 
 

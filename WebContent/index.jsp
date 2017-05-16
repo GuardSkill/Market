@@ -18,17 +18,17 @@ body{
 	font-family: 'Open Sans',sans-serif;
 	margin: 0;
 	background-color: #4A374A;
-	background-size：100%;
+	background-size：100% 100%;
 	background-image: url(backgroud.jpg);
 	background-repeat: no-repeat;
 }   
-#login{   
-    position: absolute;   
-    top: 50%;   
-    left:50%;   
-    margin: -150px 0 0 -150px;   
-    width: 300px;   
-    height: 300px;   
+#login{
+	position: absolute;
+	top: 50%;
+	left:50%;
+	margin: -150px 0 0 -150px;
+	width: 300px;
+	height: 300px;
 }   
 #login h1{   
     color: #fff;   
@@ -84,7 +84,7 @@ input{
 
 
 	<div id="login">
-		<h1>Azure</h1>
+	  <h1>Azure</h1>
 		<form action="userLogin" method="post">
 			<input name="user.uName" required="required" placeholder="用户名"
 				type="text" /> 

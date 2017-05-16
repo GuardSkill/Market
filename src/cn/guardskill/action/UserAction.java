@@ -39,7 +39,6 @@ public class UserAction extends ActionSupport{
 		 else return SUCCESS;
 	 }
 	public String userAdd () throws Exception
-
 	{
 		if(user.getuName().trim().isEmpty()||user.getuName().length()>15
 				||user.getuPassword().length()>15
