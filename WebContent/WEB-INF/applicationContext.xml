@@ -12,7 +12,7 @@
 		destroy-method="close" p:driverClass="com.mysql.jdbc.Driver"
 		p:jdbcUrl="jdbc:mysql://guardskill.cn:3306/market" 
 		p:user="user"
-		p:password="S1042h28" p:maxPoolSize="40" p:minPoolSize="2"
+		p:password="****" p:maxPoolSize="40" p:minPoolSize="2"
 		p:initialPoolSize="2" p:maxIdleTime="30" />
 	
 	<bean id="sessionFactory"
